@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+<div class="bg-animation"></div>
+
+<div class="dashboard-container">
+
+    <div class="top-bar">
+        <h1 class="dashboard-title">
+            Admin Dashboard
+        </h1>
+
+        <a href="/logout" class="logout-btn">
+            Logout
+        </a>
+    </div>
+
+    <div class="table-card">
+
+        <h2 class="table-title">
+            Registered Users
+        </h2>
+
+        <input
+            type="text"
+            id="searchInput"
+            placeholder="Search Username..."
+            class="search-box"
+        >
+
+        <div class="table-wrapper">
+            <table id="userTable">
+
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Username</th>
+                        <th>Password</th>
+                        <th>Last Login</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    {% for user in users %}
+                    <tr>
+                        <td>{{ user.id }}</td>
+                        <td>{{ user.username }}</td>
+                        <td>{{ user.password }}</td>
+                        <td>{{ user.login_time }}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+
+            </table>
+        </div>
+
+    </div>
+
+</div>
+
+<script src="{{ url_for('static', filename='script.js') }}"></script>
+
+</body>
+</html>

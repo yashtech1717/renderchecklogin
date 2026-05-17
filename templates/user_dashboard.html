@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Dashboard</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+<div class="bg-animation"></div>
+
+<div class="dashboard-center">
+
+    <div class="profile-card">
+
+        <div class="profile-glow"></div>
+
+        <h1 class="welcome-text">
+            Welcome,
+            <span>{{ user.username }}</span>
+        </h1>
+
+        <div class="profile-info">
+
+            <div class="info-box">
+                <h3>User ID</h3>
+                <p>{{ user.id }}</p>
+            </div>
+
+            <div class="info-box">
+                <h3>Username</h3>
+                <p>{{ user.username }}</p>
+            </div>
+
+            <div class="info-box">
+                <h3>Last Login</h3>
+                <p>{{ user.login_time }}</p>
+            </div>
+
+        </div>
+
+        <a href="/logout" class="btn logout-btn">
+            Logout
+        </a>
+
+    </div>
+
+</div>
+
+<script src="{{ url_for('static', filename='script.js') }}"></script>
+
+</body>
+</html>
